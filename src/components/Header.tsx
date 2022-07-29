@@ -12,9 +12,10 @@ interface HeaderProps {
 //   sidebarCollapseAction: React.Dispatch<React.SetStateAction<boolean>>;
 // };
 
-export const Header: React.FunctionComponent<
-  React.PropsWithChildren<HeaderProps>
-> = ({ sidebarCollapseState, sidebarCollapseAction }) => {
+export const Header: React.FunctionComponent<React.PropsWithChildren<HeaderProps>> = ({ 
+  sidebarCollapseState, 
+  sidebarCollapseAction 
+}) => {
   const headerOptionIconClassList = "text-white hover:text-zinc-400";
   const headerOptions = useRef([
     {

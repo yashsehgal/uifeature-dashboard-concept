@@ -14,10 +14,14 @@ export default function App() {
         sidebarCollapseState={sidebarCollapse}
         sidebarCollapseAction={setSidebarCollapse}
       />
-      <SidebarNavigation isSidebarCollapsable={sidebarCollapse} />
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
+      <div className="dashboard-content-layout-wrapper flex flex-row items-start justify-start gap-4">
+        <SidebarNavigation isSidebarCollapsable={sidebarCollapse} />
+        <div className="app-view-container">
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </div>
+      </div>
     </div>
   );
 }
