@@ -6,15 +6,18 @@ import { Home } from "./screens/Home.tsx";
 
 export default function App() {
   const [sidebarCollapse, setSidebarCollapse] = useState(false);
-  const [currentTabVeiw, setCurrentTabView] = useState("/");
-  
+  // const [currentTabVeiw, setCurrentTabView] = useState("/");
+
   return (
     <div className="app">
-      <Header sidebarCollapseState={sidebarCollapse} sidebarCollapseAction={setSidebarCollapse} />
+      <Header
+        sidebarCollapseState={sidebarCollapse}
+        sidebarCollapseAction={setSidebarCollapse}
+      />
       <SidebarNavigation isSidebarCollapsable={sidebarCollapse} />
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
     </div>
-  )
+  );
 }
