@@ -1,9 +1,9 @@
-import React, { useRef } from "react"
+import React, { useCallback, useRef } from "react"
 import { FaBars, FaGithub, FaSearch, FaSlack } from 'react-icons/fa';
 
 interface HeaderProps {
   sidebarCollapseState: boolean,
-  sidebarCollapseAction: any
+  sidebarCollapseAction: (boolean) => boolean;
 };
 
 export const Header: React.FunctionComponent<React.PropsWithChildren<HeaderProps>> = ({
@@ -17,13 +17,17 @@ export const Header: React.FunctionComponent<React.PropsWithChildren<HeaderProps
     { optionName: "Join Slack", icon: <FaSlack className={headerOptionIconClassList} /> }
   ]);
 
+  const toggleSidebar = useCallback(() => {
+    sidebarCollapseAction(!sidebarCollapseState);
+  }, [sidebarCollapseState]);
+
   return (
     <div className="header-container w-full h-fit px-6 py-4 border-b-2 border-b-zinc-800
       flex flex-row items-center justify-between
     ">
       <div className="logo-sidebar-action-wrapper flex flex-row items-center justify-start gap-3">
         <button className="p-2 rounded-md text-white font-normal text-sm bg-transparent hover:bg-white hover:bg-opacity-20 transition-all"
-          onClick={() => sidebarCollapseAction(!sidebarCollapseState)}
+          onClick={toggleSidebar}
         >
           <FaBars />
         </button>
