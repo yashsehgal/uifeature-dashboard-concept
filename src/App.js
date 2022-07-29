@@ -14,9 +14,9 @@ export default function App() {
         sidebarCollapseState={sidebarCollapse}
         sidebarCollapseAction={setSidebarCollapse}
       />
-      <div className="dashboard-content-layout-wrapper flex flex-row items-start justify-start gap-4">
+      <div className="dashboard-content-layout-wrapper flex flex-row items-start justify-start gap-4 w-full">
         <SidebarNavigation isSidebarCollapsable={sidebarCollapse} />
-        <div className="app-view-container">
+        <div className="app-view-container m-4 w-full">
           <Routes>
             <Route path="/" element={<Home />} />
           </Routes>
